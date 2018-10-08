@@ -2,7 +2,7 @@ var https = require('https');
 
 function getAndPrintHTML (options) {
 
-   var stringHTML = "";
+   var printHTML = "";
 
 
       // notice that https.get takes a callback with one parameter -
@@ -15,7 +15,7 @@ function getAndPrintHTML (options) {
           // the callback is invoked when a `data` chunk is received
           response.on('data', function (data) {
             console.log('Chunk Received. Length:', data.length)
-            console.log(stringHTML += data);
+            console.log(printHTML += data);
           });
 
             // the callback is invoked when all of the data has been received
@@ -29,7 +29,7 @@ function getAndPrintHTML (options) {
 
 var requestOptions = {
   host: 'sytantris.github.io',
-  path: '/http-examples/step3.html'
+  path: '/http-examples/step4.html'
 };
 
 getAndPrintHTML(requestOptions);
