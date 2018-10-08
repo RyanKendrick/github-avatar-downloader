@@ -1,8 +1,8 @@
 var https = require('https');
 
-function getAndPrintHTML (options) {
+function getHTML (options, callback) {
 
-   var printHTML = "";
+   var stringHTML = "";
 
 
       // notice that https.get takes a callback with one parameter -
@@ -15,7 +15,11 @@ function getAndPrintHTML (options) {
           // the callback is invoked when a `data` chunk is received
           response.on('data', function (data) {
             console.log('Chunk Received. Length:', data.length)
-            console.log(printHTML += data);
+            console.log(stringHTML += data);
+
+              function printHTML (html) {
+                console.log(html);
+              }
           });
 
             // the callback is invoked when all of the data has been received
@@ -32,4 +36,4 @@ var requestOptions = {
   path: '/http-examples/step4.html'
 };
 
-getAndPrintHTML(requestOptions);
+getHTML();
